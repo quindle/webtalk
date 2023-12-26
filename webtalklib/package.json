@@ -1,0 +1,10 @@
+{
+  "name": "webtalklib",
+  "version": "1.0.0",
+  "description": "Library for navigate web pages with voice",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ]
+}
