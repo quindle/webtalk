@@ -1,6 +1,5 @@
 //webpack.config.js
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: "development",
@@ -9,13 +8,9 @@ module.exports = {
     outputModule: true,
   },
   entry: {
-    main: "./node_modules/webtalklib/src/index.ts",
+    main: "./src/index.ts",
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: 'Output Management',
-    }),
-  ],
+  plugins: [],
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: "webtalklib.js", // <--- Will be compiled to this single file

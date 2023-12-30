@@ -4,6 +4,9 @@ export function sayHello() {
 }
 export function sayGoodbye() {
   console.log('goodbye')
+  console.log('pippo')
 }
+
+
 
 
