@@ -1,23 +1,29 @@
 //webpack.config.js
 const path = require('path');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = {
+  node: { global: true },
   mode: "development",
   devtool: "inline-source-map",
-  experiments: {
+  /*experiments: {
     outputModule: true,
-  },
-  entry: {
-    main: "./src/index.ts",
-  },
-  plugins: [],
+  },*/
+  entry: path.resolve(__dirname, './src'),
+  plugins: [
+    new ForkTsCheckerWebpackPlugin()
+  ],
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: "webtalklib.js", // <--- Will be compiled to this single file
+    filename: "webtalklib_pack.js", // <--- Will be compiled to this single file
     clean: true,
-    library: {
+    libraryTarget: 'umd',
+    globalObject: `(typeof self !== 'undefined' ? self : this)`,
+    umdNamedDefine: true,
+    library: "webtalklib"
+    /*library: {
       type: 'module'
-    }
+    }*/
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
@@ -25,8 +31,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        loader: "ts-loader"
+        test: /\.(ts|js)x?$/,
+        loader: "babel-loader",
+        exclude: /node_modules/
       }
     ]
   }
