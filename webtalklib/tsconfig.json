@@ -11,8 +11,9 @@
     "noImplicitAny": true,
     "declarationDir": "dist/types",
     "declaration": true,
-    "target": "es2015",
-    "module": "es2015",
+    "target": "es2016",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "strict": true,
     "lib": [
       "ES2015",
